@@ -13,6 +13,14 @@ app = Flask(__name__)
 app.register_blueprint(app_views)
 
 
+@app.errorhandler(404)
+def not_found(error):
+    """ function for error 404 """
+    response = jsonify({"error": "Not found"})
+    response.status_code = 404
+    return response
+
+
 @app.teardown_appcontext
 def teardown_db(exception):
     """closes the storage on teardown"""

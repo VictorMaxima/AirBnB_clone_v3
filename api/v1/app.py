@@ -28,8 +28,14 @@ def teardown_db(exception):
     storage.close()
 
 
-host_name = os.getenv("HBNB_API_HOST") if os.getenv("HBNB_API_HOST") else "0.0.0.0"
-port_name = os.getenv("HBNB_API_PORT") if os.getenv("HBNB_API_PORT") else "5000"
+host_name = "0.0.0.0"
+port_name = "5000"
+
+if os.getenv("HBNB_API_HOST"):
+    host_name = os.getenv("HBNB_API_HOST")
+
+if os.getenv("HBNB_API_PORT"):
+    port_name = os.getenv("HBNB_API_PORT")
 
 
 if __name__ == '__main__':

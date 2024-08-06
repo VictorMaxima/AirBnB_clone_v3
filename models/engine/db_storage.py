@@ -81,3 +81,7 @@ class DBStorage:
         obj = objs.get(f"{cls}.{id}")
         print(type(obj))
         return obj
+    
+    def count(self, cls=None):
+        """ returns the number of classes """
+        return len(self.all(cls=cls))

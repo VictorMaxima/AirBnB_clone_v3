@@ -5,7 +5,7 @@
 import flask
 from flask import Flask
 from models import storage
-from app.v1.views import app_views
+from api.v1.views import app_views
 import os
 
 

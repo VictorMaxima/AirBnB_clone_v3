@@ -10,6 +10,7 @@ from models.review import Review
 from models.place import Place
 from models.user import User
 
+
 @app_views.route("/status")
 def status():
     return jsonify({"status": "OK"})
@@ -18,10 +19,9 @@ def status():
 @app_views.route("/stats")
 def stats():
     """ handler for the stats view """
-    return jsonify({"amenities": storage.count(Amenity),
-                     "cities": storage.count(City),
-                     "places": storage.count(Place),
-                     "reviews": storage.count(Review),
-                     "states": storage.count(State),
-                     "users": storage.count(User)})
-
+    return jsonify({"amenities": storage.count(cls=Amenity),
+                    "cities": storage.count(cls=City),
+                    "places": storage.count(cls=Place),
+                    "reviews": storage.count(cls=Review),
+                    "states": storage.count(cls=State),
+                    "users": storage.count(cls=User)})

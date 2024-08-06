@@ -77,4 +77,5 @@ class FileStorage:
 
     def count(self, cls=None):
         """ returns the number of classes """
-        return len(self.all(cls=cls).items())
+        return len(self.all(cls=cls))
+        print(self.all(cls))

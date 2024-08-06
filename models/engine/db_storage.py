@@ -78,7 +78,8 @@ class DBStorage:
     def get(self, cls, id):
         """ returns an object based on it's class and id """
         objs = self.all(cls=cls)
-        obj = objs.get(f"{cls}.{id}")
+        obj = objs.get(f"{str(cls.__name__)}.{id}")
+        print(objs)
         print(type(obj))
         return obj
     

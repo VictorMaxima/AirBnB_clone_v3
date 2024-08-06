@@ -28,7 +28,7 @@ def delete_state(state_id):
     state = storage.get(State, state_id)
     if state is None:
         abort(404)
-    storage.delete(state)
+    del state
     storage.save()
     return jsonify({}), 200
 
@@ -38,7 +38,7 @@ def create_state():
     """ Creates a State object """
     if not request.is_json:
         abort(400, description="Not a JSON")
-    return request.get_json()
+    data = request.get_json()
     if 'name' not in data:
         abort(400, description="Missing name")
     new_state = State(**data)
